@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#PBS -l nodes=c005:ppn=20
+#PBS -l walltime=999:00:00
+#PBS -j oe
+#PBS -N mdff-c005-20nodes
+#PBS -V 
+
+source /etc/profile.d/modules.sh
+
+module load intel impi
+module load fftw3/intel
+module load cuda/6.0
+module load namd
+
+
+cd $PBS_O_WORKDIR
+
+#/share/home/hongqiyang/bin/namd/charmrun +p 20  /share/home/hongqiyang/bin/namd/namd2  adk-step1.namd > adk-step1.log
+#/share/home/hongqiyang/bin/namd/charmrun +p 20  /share/home/hongqiyang/bin/namd/namd2  adk-step2.namd > adk-step2.log
+mpirun  namd2 adk-solvent-step1.namd > adk-solvent-step1.log
+mpirun  namd2 adk-solvent-step2.namd > adk-solvent-step2.log
