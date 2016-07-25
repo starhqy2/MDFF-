@@ -6,7 +6,7 @@ Upload your *.pdb, *.mrc files and this repository files.
 
 step2
 =====
-sh mdff.sh
+sh First_mdff.sh
 
 step3
 =====
